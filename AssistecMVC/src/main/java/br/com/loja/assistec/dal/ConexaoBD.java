@@ -10,7 +10,7 @@ public class ConexaoBD {
 
 	private static final String USER = "root";
 
-	private static final String PASSWORD = "aluno";
+	private static final String PASSWORD = "Berbelle77-";
 
 	// Método para estabelecer conexão com o BD
 	public static Connection conectar() {
