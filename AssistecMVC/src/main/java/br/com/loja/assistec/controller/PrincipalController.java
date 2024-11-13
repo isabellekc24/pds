@@ -67,7 +67,7 @@ public class PrincipalController {
 
 	private void sairDoSistema() {
 		MensagemView mv = new MensagemView("Deseja sair do Sistema?");
-		int confirmacao = mv.getResposta();
+		int confirmacao = mv.getResp();
 		if (confirmacao == 1) {
 			System.exit(0);
 		} else {

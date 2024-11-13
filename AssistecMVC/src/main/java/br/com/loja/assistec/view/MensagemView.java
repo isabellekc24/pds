@@ -19,7 +19,7 @@ public class MensagemView extends JDialog {
 
 	public MensagemView(String mensagem, int tipo) {
 		setTitle("Mensagem");
-		setSize(350,200);
+		setSize(350, 200);
 		setModal(true);
 
 		JPanel painel = new JPanel();
@@ -52,69 +52,69 @@ public class MensagemView extends JDialog {
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconeURL)));
 			break;
 		}
-		JPanel painelSul = new JPanel(new FlowLayout(FlowLayout.CENTER,20,10));
+		JPanel painelSul = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
 		painelSul.add(new JPanel());
 		JButton btOk = new JButton("Ok");
-        btOk.setPreferredSize(new Dimension(100, 30));
+		btOk.setPreferredSize(new Dimension(100, 30));
 		btOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-			}});
+			}
+		});
 		painelSul.add(btOk);
 		painelSul.add(new JPanel());
-		painel.add(painelSul,BorderLayout.SOUTH);
-		
-		setSize(350,200);
+		painel.add(painelSul, BorderLayout.SOUTH);
+
+		setSize(350, 200);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		
+
 	}
-	
+
 	public MensagemView(String pergunta) {
-        setTitle("Mensagem");
-        setSize(350, 200);
-        setModal(true);
+		setTitle("Mensagem");
+		setSize(350, 200);
+		setModal(true);
 
-        JPanel painel = new JPanel();
-        painel.setLayout(new BorderLayout());
-        add(painel);
+		
+		JPanel painel = new JPanel();
+		painel.setLayout(new BorderLayout());
+		add(painel);
 
-        JLabel lablPergunta = new JLabel(pergunta, SwingConstants.CENTER);
-        String iconPath = "/br/com/loja/assistec/icones/question.png";
-        lablPergunta.setIcon(new ImageIcon(getClass().getResource(iconPath)));
-        painel.add(lablPergunta, BorderLayout.CENTER);
+		JLabel lablPergunta = new JLabel(pergunta, SwingConstants.CENTER);
+		String iconPath = "/br/com/loja/assistec/icones/question.png";
+		lablPergunta.setIcon(new ImageIcon(getClass().getResource(iconPath)));
+		painel.add(lablPergunta, BorderLayout.CENTER);
 
-        JPanel painelSul = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+		JPanel painelSul = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
 
-        JButton btSim = new JButton("Sim");
-        btSim.setPreferredSize(new Dimension(100, 30));
-        btSim.addActionListener(new ActionListener() {
+		JButton btSim = new JButton("Sim");
+		btSim.setPreferredSize(new Dimension(100, 30));
+		btSim.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				resposta = 1;
 				setVisible(false);
-			}});
-        painelSul.add(btSim);
+			}
+		});
+		painelSul.add(btSim);
 
-        JButton btNao = new JButton("Não");
-        btNao.setPreferredSize(new Dimension(100, 30));
-        btNao.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                resposta = 0;
-                setVisible(false);
-            }
-        });
-        painelSul.add(btNao);
+		JButton btNao = new JButton("Não");
+		btNao.setPreferredSize(new Dimension(100, 30));
+		btNao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resposta = 0;
+				setVisible(false);
+			}
+		});
+		painelSul.add(btNao);
 
-        painel.add(painelSul, BorderLayout.SOUTH);
+		painel.add(painelSul, BorderLayout.SOUTH);
 
-        setLocationRelativeTo(null);
-        setVisible(true);
-        
-        
-    }
-
-	public int getResposta() {
-        return resposta;
-    }
+		setLocationRelativeTo(null);
+		setVisible(true);
+	}
+	public int getResp() {
+		return resposta;
+	}
 
 }
