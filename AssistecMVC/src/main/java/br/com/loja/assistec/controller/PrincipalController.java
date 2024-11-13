@@ -19,7 +19,6 @@ public class PrincipalController {
 		this.perfil = perfil;
 		this.principalView = new PrincipalView();
 		configurarJanela();
-		// Configura o controlador para responder a eventos
 		configurarListeners();
 
 	}
@@ -52,7 +51,6 @@ public class PrincipalController {
 		}
 	}
 
-	// Configura os listeners para os itens de menu e eventos de janela
 	private void configurarListeners() {
 		principalView.addPrincipalViewListener(new MenuActionListener());
 		principalView.addWindowListener(new WindowAdapter() {
@@ -63,28 +61,24 @@ public class PrincipalController {
 		});
 	}
 
-	// Abre a tela de listagem de usuários
 	private void abrirListagemUsuarios() {
-		new ListarUsuarioController();
+		new ListarUsuariosController();
 	}
 
-	// Exibe a mensagem de confirmação de saída e fecha o sistema se confirmado
 	private void sairDoSistema() {
 		MensagemView mv = new MensagemView("Deseja sair do Sistema?");
 		int confirmacao = mv.getResposta();
 		if (confirmacao == 1) {
 			System.exit(0);
 		} else {
-			
+
 		}
 	}
 
-	// Exibe a tela "Sobre" do sistema
 	private void mostrarInformacoesSobre() {
 		new MensagemView("Sistema de Gestão Assistec - Versão 1.0!", 10);
 	}
 
-	// Configura o perfil do usuário e ajusta permissões no menu
 	private void configurarPerfilUsuario() {
 		ArrayList<String> listaPerfil = new ArrayList<>();
 		if ("Admin".equalsIgnoreCase(perfil)) {

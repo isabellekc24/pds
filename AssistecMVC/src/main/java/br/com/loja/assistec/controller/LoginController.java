@@ -76,7 +76,7 @@ public class LoginController {
 				}
 			} else {
 				//view.mostrarMensagem("Verifique as informações!", "Atenção");
-				new MensagemView("Olha o sobre!", 10);
+				new MensagemView("Olha o sobre", 10);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

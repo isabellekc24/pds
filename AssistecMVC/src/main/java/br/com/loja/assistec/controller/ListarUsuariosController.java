@@ -9,27 +9,25 @@ import java.awt.event.WindowEvent;
 import br.com.loja.assistec.model.Usuario;
 import br.com.loja.assistec.view.ListarUsuariosView;
 
-public class ListarUsuarioController {
-	public ListarUsuariosView viewL;
+public class ListarUsuariosController {
+	public ListarUsuariosView listar;
 
-	public ListarUsuarioController() {
-		viewL = new ListarUsuariosView();
-		viewL.setLocationRelativeTo(null);
-		viewL.setVisible(true);
+	public ListarUsuariosController() {
+		listar = new ListarUsuariosView();
+		listar.setLocationRelativeTo(null);
+		listar.setVisible(true);
 		configurarListeners();
 		carregarUsuarios();
 	}
 
 	private void configurarListeners() {
-
-		viewL.addListarUsuariosListeners(new ListarUsuariosListener());
-		viewL.addWindowListener(new JanelaAberturaListener());
+		listar.addListarUsuariosListeners(new ListarUsuariosListener());
+		listar.addWindowListener(new JanelaAberturaListener());
 	}
 
 	private void carregarUsuarios() {
 
 	}
-
 	
 	private class ListarUsuariosListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
@@ -39,8 +37,7 @@ public class ListarUsuarioController {
 				abrirCadastroUsuario(null);
 				break;
 			case "BotaoFecharAction":
-				viewL.dispose();
-				
+				listar.dispose();
 			default:
 				break;
 			}
@@ -49,7 +46,7 @@ public class ListarUsuarioController {
 
 
 	public void abrirCadastroUsuario(Usuario usuarioSelecionado) {
-		//new CadastrarUsuaioController(this, usuarioSlecionado);
+		
 	}
 	
 	public class JanelaAberturaListener extends WindowAdapter{
