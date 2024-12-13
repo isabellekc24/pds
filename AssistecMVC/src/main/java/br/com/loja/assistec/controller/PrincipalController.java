@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.loja.assistec.view.MensagemView;
@@ -19,17 +20,16 @@ public class PrincipalController {
 		this.perfil = perfil;
 		this.principalView = new PrincipalView();
 		configurarJanela();
+		// Configura o controlador para responder a eventos
 		configurarListeners();
 
 	}
 
-	// Configura propriedades iniciais da janela principal
 	private void configurarJanela() {
 		principalView.setLocationRelativeTo(null);
 		principalView.setVisible(true);
 	}
 
-	// Classe interna para gerenciar eventos de menu
 	private class MenuActionListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -37,7 +37,11 @@ public class PrincipalController {
 
 			switch (comando) {
 			case "MenuUsuariosAction":
-				abrirListagemUsuarios();
+				try {
+					abrirListagemUsuarios();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				break;
 			case "MenuSairAction":
 				sairDoSistema();
@@ -61,22 +65,20 @@ public class PrincipalController {
 		});
 	}
 
-	private void abrirListagemUsuarios() {
-		new ListarUsuariosController();
+	private void abrirListagemUsuarios() throws SQLException {
+		new ListarUsuarioController();
 	}
 
 	private void sairDoSistema() {
-		MensagemView mv = new MensagemView("Deseja sair do Sistema?");
-		int confirmacao = mv.getResp();
+		MensagemView mv = new MensagemView("Tem certeza que deseja sair?");
+		int confirmacao = mv.getResposta();
 		if (confirmacao == 1) {
 			System.exit(0);
-		} else {
-
 		}
 	}
 
 	private void mostrarInformacoesSobre() {
-		new MensagemView("Sistema de Gestão Assistec - Versão 1.0!", 10);
+		new MensagemView("Sistema de Gestão Assistec", 10);
 	}
 
 	private void configurarPerfilUsuario() {

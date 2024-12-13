@@ -1,4 +1,3 @@
-
 package br.com.loja.assistec.view;
 
 import java.awt.event.ActionListener;
@@ -7,7 +6,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -67,14 +65,4 @@ public class LoginView extends JFrame {
 	public String getSenha() {
 		return new String(txtSenha.getPassword());
 	}
-
-	/*public void mostrarMensagem(String mensagem, String tipo) {
-		int messageType = switch (tipo) {
-		case "Atenção" -> JOptionPane.WARNING_MESSAGE;
-		case "Informação" -> JOptionPane.INFORMATION_MESSAGE;
-		case "Erro" -> JOptionPane.ERROR_MESSAGE;
-		default -> JOptionPane.PLAIN_MESSAGE;
-		};
-		JOptionPane.showMessageDialog(this, mensagem, tipo, messageType);
-	}*/
 }

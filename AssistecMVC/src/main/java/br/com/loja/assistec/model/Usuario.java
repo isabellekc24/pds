@@ -9,7 +9,6 @@ public class Usuario {
 	private String senha;
 	private String perfil;
 
-	// Método construtor com todos os parâmetros
 	public Usuario(Long iduser, String nome, String fone, String login, String senha, String perfil) {
 		this.iduser = iduser;
 		this.nome = nome;
@@ -19,7 +18,6 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 
-	// Método construtor com todos os parâmetros menos ID
 	public Usuario(String nome, String fone, String login, String senha, String perfil) {
 		this.nome = nome;
 		this.fone = fone;
@@ -28,14 +26,12 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 
-	// Método construtor para o login
 	public Usuario(String login, String senha, String perfil) {
 		this.login = login;
 		this.senha = senha;
 		this.perfil = perfil;
 	}
 
-	// Método construtor sem parâmetros
 	public Usuario() {
 
 	}
