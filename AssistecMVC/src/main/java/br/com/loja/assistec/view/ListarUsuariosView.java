@@ -1,6 +1,7 @@
 package br.com.loja.assistec.view;
 
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
@@ -9,8 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
 //import javax.swing.table.TableRowSorter;
 //import br.com.loja.assistec.model.UsuarioTableModel;
+import javax.swing.table.TableRowSorter;
 
 import br.com.loja.assistec.model.Usuario;
 import br.com.loja.assistec.model.UsuarioTableModel;
@@ -23,6 +26,7 @@ public class ListarUsuariosView extends JFrame {
 	private JButton btnFechar;
 	private JTable tabela;
 	private UsuarioTableModel usuarioTableModel;
+	private TableRowSorter<UsuarioTableModel> rowSorter;
 	private JScrollPane scroolPane;
 
 	
@@ -68,6 +72,13 @@ public class ListarUsuariosView extends JFrame {
 	public void mostrarUsuariosTabela(ArrayList<Usuario> listaUsuarios) {
 		usuarioTableModel = new UsuarioTableModel(listaUsuarios);
 		tabela.setModel(usuarioTableModel);
+		
+		rowSorter = new TableRowSorter<>(usuarioTableModel);
+		tabela.setRowSorter(rowSorter);
+	}
+	
+	public void addBuscarKeyListener(KeyListener listener) {
+		txtLocalizar.addKeyListener(listener);
 	}
 	
 	public void addTabelaMouseListener(MouseListener listener) {
@@ -84,6 +95,16 @@ public class ListarUsuariosView extends JFrame {
 
 	public void atualizarTabelaUsuarios(ArrayList<Usuario> novosUsuarios) {
 		usuarioTableModel.carregarDados(novosUsuarios);
+		
+	}
+
+	public void filtrarRegistros() {
+		String busca = txtLocalizar.getText().trim();
+		if(busca.isEmpty()) {
+			rowSorter.setRowFilter(null);
+		}else {
+			rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + busca));
+		}
 		
 	}
 	
